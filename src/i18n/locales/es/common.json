@@ -49,6 +49,7 @@
   "errors": {
     "loginFailed": "Inicio de sesion fallido",
     "registerFailed": "Registro fallido",
-    "unexpected": "Ha ocurrido un error inesperado"
+    "unexpected": "Ha ocurrido un error inesperado",
+    "logoutFailed": "Cierre de sesion fallido"
   }
 }

@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router';
 import { AuthContext } from "../context/AuthContext.jsx";
-import { setTokens } from "../helpers/tokens.js";
+import { clearTokens, getRefreshToken, setTokens } from "../helpers/tokens.js";
 import { useTranslation } from "react-i18next";
 import { BACKEND_URL } from "../config/config.js";
-
+import { apiClient } from "../services/apiClient.js";
 const getUser = () => {
   const user = localStorage.getItem("user");
   return user ? JSON.parse(user) : null;
@@ -11,15 +12,13 @@ const getUser = () => {
 
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(getUser);
-
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
   const login = async (data) => {
     try {
-      const response = await fetch(`${BACKEND_URL}/auth/login`, {
+      const response = await apiClient("/auth/login", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify(data),
       });
 
@@ -44,11 +43,8 @@ const AuthContextProvider = ({ children }) => {
 
   const register = async (data) => {
     try {
-      const response = await fetch(`${BACKEND_URL}/auth/register`, {
+      const response = await apiClient("/auth/register", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify(data),
       });
 
@@ -71,8 +67,31 @@ const AuthContextProvider = ({ children }) => {
     }
   };
 
+  const logout = async () => {
+    try{
+      const refreshToken = getRefreshToken();
+      const refreshToken_id = refreshToken ? {refreshToken_id : JSON.parse(refreshToken).refreshToken_id} : "";
+
+      const response = await apiClient("/auth/logout", {
+        method: "DELETE",
+        body: JSON.stringify(refreshToken_id)
+      });
+
+      const res = await response.json();
+      
+      if (!response.ok) throw new Error(res.msg || t("errors.logoutFailed"));
+      
+    }catch(error){
+      console.error("Error during logout: ", error);
+    }finally{
+      clearTokens();
+      setUser(null);
+      navigate('/auth/login');
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ login, user, register }}>
+    <AuthContext.Provider value={{ login, user, register, logout }}>
       {children}
     </AuthContext.Provider>
   );
