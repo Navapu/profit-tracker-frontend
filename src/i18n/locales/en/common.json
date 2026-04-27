@@ -1,0 +1,30 @@
+{
+  "login": {
+    "badge": "Profit Tracker",
+    "heroTitle": "Take control of your finances with a clear and actionable view.",
+    "heroDescription": "Check your balance, review your transactions, and manage your income and expenses from a single interface.",
+    "balance": "Balance",
+    "income": "Income",
+    "expenses": "Expenses",
+    "access": "Access",
+    "title": "Sign in",
+    "subtitle": "Log in to view your dashboard and transactions.",
+    "email": "Email",
+    "emailPlaceholder": "you@email.com",
+    "password": "Password",
+    "passwordPlaceholder": "••••••••",
+    "forgotPassword": "Forgot my password",
+    "submit": "Sign in",
+    "submitting": "Signing in...",
+    "createAccount": "Create account",
+    "noAccount": "Don't have an account yet?"
+  },
+  "validation": {
+    "invalidEmail": "Invalid email",
+    "passwordMin": "Password must be at least 6 characters"
+  },
+  "errors": {
+    "loginFailed": "Login failed",
+    "unexpected": "An unexpected error occurred"
+  }
+}

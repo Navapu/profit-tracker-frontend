@@ -1,0 +1,30 @@
+{
+  "login": {
+    "badge": "Profit Tracker",
+    "heroTitle": "Controla tus finanzas con una vista clara y accionable.",
+    "heroDescription": "Consulta tu balance, analiza tus movimientos y gestiona tus ingresos y gastos desde una sola interfaz.",
+    "balance": "Balance",
+    "income": "Ingresos",
+    "expenses": "Gastos",
+    "access": "Acceso",
+    "title": "Inicia sesión",
+    "subtitle": "Entra con tu cuenta para ver tu dashboard y tus transacciones.",
+    "email": "Email",
+    "emailPlaceholder": "tu@email.com",
+    "password": "Contraseña",
+    "passwordPlaceholder": "••••••••",
+    "forgotPassword": "Olvidé mi contraseña",
+    "submit": "Iniciar sesión",
+    "submitting": "Entrando...",
+    "createAccount": "Crear cuenta",
+    "noAccount": "¿Aún no tienes cuenta?"
+  },
+  "validation": {
+    "invalidEmail": "Email inválido",
+    "passwordMin": "La contraseña debe tener al menos 6 caracteres"
+  },
+  "errors": {
+    "loginFailed": "Inicio de sesión fallido",
+    "unexpected": "Ha ocurrido un error inesperado"
+  }
+}
