@@ -19,12 +19,36 @@
     "createAccount": "Create account",
     "noAccount": "Don't have an account yet?"
   },
+  "register": {
+    "badge": "Profit Tracker",
+    "heroTitle": "Start organizing your finances from day one.",
+    "heroDescription": "Create your account to track transactions, understand your habits, and make better decisions with your money.",
+    "balance": "Balance",
+    "income": "Income",
+    "expenses": "Expenses",
+    "access": "Register",
+    "title": "Create your account",
+    "subtitle": "Fill in your details to access your personal space.",
+    "username": "Username",
+    "usernamePlaceholder": "your_username",
+    "email": "Email",
+    "emailPlaceholder": "you@email.com",
+    "password": "Password",
+    "passwordPlaceholder": "••••••••",
+    "submit": "Create account",
+    "submitting": "Creating account...",
+    "haveAccount": "Already have an account?",
+    "goToLogin": "Sign in"
+  },
   "validation": {
     "invalidEmail": "Invalid email",
-    "passwordMin": "Password must be at least 6 characters"
+    "passwordMin": "Password must be at least 6 characters",
+    "usernameMin": "Username must be at least 3 characters",
+    "usernameMax": "Username cannot exceed 20 characters"
   },
   "errors": {
     "loginFailed": "Login failed",
+    "registerFailed": "Registration failed",
     "unexpected": "An unexpected error occurred"
   }
 }

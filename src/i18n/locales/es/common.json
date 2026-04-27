@@ -7,24 +7,48 @@
     "income": "Ingresos",
     "expenses": "Gastos",
     "access": "Acceso",
-    "title": "Inicia sesión",
+    "title": "Inicia sesion",
     "subtitle": "Entra con tu cuenta para ver tu dashboard y tus transacciones.",
     "email": "Email",
     "emailPlaceholder": "tu@email.com",
-    "password": "Contraseña",
+    "password": "Contrasena",
     "passwordPlaceholder": "••••••••",
-    "forgotPassword": "Olvidé mi contraseña",
-    "submit": "Iniciar sesión",
+    "forgotPassword": "Olvide mi contrasena",
+    "submit": "Iniciar sesion",
     "submitting": "Entrando...",
     "createAccount": "Crear cuenta",
-    "noAccount": "¿Aún no tienes cuenta?"
+    "noAccount": "Aun no tienes cuenta?"
+  },
+  "register": {
+    "badge": "Profit Tracker",
+    "heroTitle": "Empieza a organizar tus finanzas desde el primer dia.",
+    "heroDescription": "Crea tu cuenta para registrar movimientos, entender tus habitos y tomar mejores decisiones con tu dinero.",
+    "balance": "Balance",
+    "income": "Ingresos",
+    "expenses": "Gastos",
+    "access": "Registro",
+    "title": "Crea tu cuenta",
+    "subtitle": "Rellena tus datos para acceder a tu espacio personal.",
+    "username": "Nombre de usuario",
+    "usernamePlaceholder": "tu_usuario",
+    "email": "Email",
+    "emailPlaceholder": "tu@email.com",
+    "password": "Contrasena",
+    "passwordPlaceholder": "••••••••",
+    "submit": "Crear cuenta",
+    "submitting": "Creando cuenta...",
+    "haveAccount": "Ya tienes cuenta?",
+    "goToLogin": "Inicia sesion"
   },
   "validation": {
-    "invalidEmail": "Email inválido",
-    "passwordMin": "La contraseña debe tener al menos 6 caracteres"
+    "invalidEmail": "Email invalido",
+    "passwordMin": "La contrasena debe tener al menos 6 caracteres",
+    "usernameMin": "El nombre de usuario debe tener al menos 3 caracteres",
+    "usernameMax": "El nombre de usuario no puede superar los 20 caracteres"
   },
   "errors": {
-    "loginFailed": "Inicio de sesión fallido",
+    "loginFailed": "Inicio de sesion fallido",
+    "registerFailed": "Registro fallido",
     "unexpected": "Ha ocurrido un error inesperado"
   }
 }
