@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router';
 import { AuthContext } from "../context/AuthContext.jsx";
-import { clearTokens, getRefreshToken, setTokens } from "../helpers/tokens.js";
+import { clearTokens, getRefreshToken, setTokens, getAccessToken } from "../helpers/tokens.js";
 import { useTranslation } from "react-i18next";
 import { BACKEND_URL } from "../config/config.js";
 import { apiClient } from "../services/apiClient.js";
@@ -11,9 +11,14 @@ const getUser = () => {
 };
 
 const AuthContextProvider = ({ children }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState(getUser);
   const { t } = useTranslation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    checkToken();
+  }, []);
 
   const login = async (data) => {
     try {
@@ -90,8 +95,41 @@ const AuthContextProvider = ({ children }) => {
     }
   };
 
+  const checkToken = async () => {
+    setIsLoading(true);
+    try{
+        const acesstoken = getAccessToken();
+        const refreshToken = getRefreshToken();
+        
+        if(!acesstoken || !refreshToken){
+            setUser(null);
+            return;
+        }
+
+        const response = await apiClient('/auth/me', {
+            method: 'POST',
+        });
+        const res = await response.json();
+        const responseData = res.data;
+        
+        if(!response.ok){
+            setUser(null);
+            clearTokens();
+            throw new Error(res.msg || t("errors.checkTokenFailed"));
+        }
+        
+        setUser(responseData);
+        return responseData;
+    }catch(error){
+        console.error("checkToken error:", error);
+        throw error;
+    }finally{
+        setIsLoading(false);
+    }
+}
+
   return (
-    <AuthContext.Provider value={{ login, user, register, logout }}>
+    <AuthContext.Provider value={{ login, user, register, logout, isLoading }}>
       {children}
     </AuthContext.Provider>
   );

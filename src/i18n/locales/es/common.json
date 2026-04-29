@@ -50,6 +50,7 @@
     "loginFailed": "Inicio de sesion fallido",
     "registerFailed": "Registro fallido",
     "unexpected": "Ha ocurrido un error inesperado",
-    "logoutFailed": "Cierre de sesion fallido"
+    "logoutFailed": "Cierre de sesion fallido",
+    "checkTokenFailed": "Error al verificar el token"
   }
 }

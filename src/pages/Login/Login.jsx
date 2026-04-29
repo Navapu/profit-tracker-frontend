@@ -4,6 +4,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useLocation, useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
+import { ClipLoader } from "react-spinners";
 
 import { AuthContext } from "../../context/AuthContext.jsx";
 
@@ -170,7 +171,18 @@ export const Login = () => {
                   disabled={isLoading}
                   className="w-full rounded-2xl bg-emerald-400 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:opacity-70"
                 >
-                  {isLoading ? t("login.submitting") : t("login.submit")}
+                  <div className="flex items-center justify-center gap-2">
+                        {isLoading && (
+                        <ClipLoader 
+                            size={18} 
+                            color="#020617"
+                            speedMultiplier={0.8}
+                        />
+                        )}
+                        <span>
+                        {isLoading ? t("login.submitting") : t("login.submit")}
+                        </span>
+                    </div>
                 </button>
               </form>
 

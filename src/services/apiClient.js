@@ -15,21 +15,21 @@ async function refreshAccessToken() {
       isRefreshing = false;
       return null;
     }
-
+    const refreshTokenObj = JSON.parse(refreshToken);
     try {
       const res = await fetch(`${BACKEND_URL}/auth/refresh`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ refreshToken }),
+        body: JSON.stringify({ refreshToken: refreshTokenObj.refreshToken }),
       });
       if (!res.ok) throw new Error("Failed to refresh token");
 
       const data = await res.json();
 
-      setTokens(data.accessToken, data.refreshToken);
+      setTokens(data.data.accessToken, refreshToken);
 
       isRefreshing = false;
-      return data.accessToken;
+      return data.data.accessToken;
     } catch (error) {
       console.error("Refresh token failed → clearing tokens: ", error);
       clearTokens();

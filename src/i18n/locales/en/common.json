@@ -50,6 +50,7 @@
     "loginFailed": "Login failed",
     "registerFailed": "Registration failed",
     "unexpected": "An unexpected error occurred",
-    "logoutFailed": "Logout failed"
+    "logoutFailed": "Logout failed",
+    "checkTokenFailed": "Error verifying token"
   }
 }
