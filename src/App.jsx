@@ -4,16 +4,24 @@ import { Login } from './pages/Login/Login.jsx'
 import { Register } from './pages/Register/Register.jsx'
 import { Dashboard } from './pages/Dashboard/Dashboard.jsx';
 import { PrivateRoute } from './components/PrivateRoute.jsx';
+import { PublicRoute } from './components/PublicRoute.jsx';
 function App() {
   return (
     <div>
       <Routes>
         <Route path='/auth'>
           <Route index element={<Navigate to="login" replace />} />
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
+          <Route path="login" element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          } />
+          <Route path="register" element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          } />
         </Route>
-
         <Route path='/dashboard'>
           <Route index element={
             <PrivateRoute>
