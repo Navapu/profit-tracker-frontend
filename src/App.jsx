@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router";
 import { Login } from './pages/Login/Login.jsx'
 import { Register } from './pages/Register/Register.jsx'
 import { Dashboard } from './pages/Dashboard/Dashboard.jsx';
+import { PrivateRoute } from './components/PrivateRoute.jsx';
 function App() {
   return (
     <div>
@@ -15,7 +16,9 @@ function App() {
 
         <Route path='/dashboard'>
           <Route index element={
-            <Dashboard />
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
           } />
         </Route>
       </Routes>

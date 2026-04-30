@@ -30,8 +30,8 @@ async function refreshAccessToken() {
 
       isRefreshing = false;
       return data.data.accessToken;
-    } catch (error) {
-      console.error("Refresh token failed → clearing tokens: ", error);
+    } catch{
+      // console.error("Refresh token failed → clearing tokens: ", error);
       clearTokens();
       isRefreshing = false;
       return null;

@@ -2,13 +2,11 @@ import { apiClient } from "../../services/apiClient.js";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { ClipLoader } from "react-spinners";
-
 export const Dashboard = () => {
   const { t } = useTranslation();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [summary, setSummary] = useState({});
-  
   const getSummary = async () => {
     try {
       setIsLoading(true);

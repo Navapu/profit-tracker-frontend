@@ -5,17 +5,19 @@ import { clearTokens, getRefreshToken, setTokens, getAccessToken } from "../help
 import { useTranslation } from "react-i18next";
 import { BACKEND_URL } from "../config/config.js";
 import { apiClient } from "../services/apiClient.js";
-const getUser = () => {
-  const user = localStorage.getItem("user");
-  return user ? JSON.parse(user) : null;
-};
+
+// const getUser = () => {
+//   const user = localStorage.getItem("user");
+//   return user ? JSON.parse(user) : null;
+// };
 
 const AuthContextProvider = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [user, setUser] = useState(getUser);
+  const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { t } = useTranslation();
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     checkToken();
   }, []);
@@ -36,9 +38,10 @@ const AuthContextProvider = ({ children }) => {
       setTokens(responseData.token, JSON.stringify(responseData.refreshToken));
       delete responseData.token;
       delete responseData.refreshToken;
-      localStorage.setItem("user", JSON.stringify(responseData));
+      // localStorage.setItem("user", JSON.stringify(responseData));
 
       setUser(responseData);
+      setIsLoggedIn(true);
       return responseData;
     } catch (error) {
       console.error("Error logging in:", error);
@@ -61,10 +64,10 @@ const AuthContextProvider = ({ children }) => {
       setTokens(responseData.token, JSON.stringify(responseData.refreshToken));
       delete responseData.token;
       delete responseData.refreshToken;
-      localStorage.setItem("user", JSON.stringify(responseData));
+      // localStorage.setItem("user", JSON.stringify(responseData));
 
       setUser(responseData);
-
+      setIsLoggedIn(true);
       return responseData;
     } catch (error) {
       console.error(error);
@@ -85,7 +88,7 @@ const AuthContextProvider = ({ children }) => {
       const res = await response.json();
       
       if (!response.ok) throw new Error(res.msg || t("errors.logoutFailed"));
-      
+      setIsLoggedIn(false);
     }catch(error){
       console.error("Error during logout: ", error);
     }finally{
@@ -103,6 +106,7 @@ const AuthContextProvider = ({ children }) => {
         
         if(!acesstoken || !refreshToken){
             setUser(null);
+            setIsLoggedIn(false);
             return;
         }
 
@@ -119,17 +123,17 @@ const AuthContextProvider = ({ children }) => {
         }
         
         setUser(responseData);
+        setIsLoggedIn(true);
         return responseData;
-    }catch(error){
-        console.error("checkToken error:", error);
-        throw error;
+    }catch{
+        // console.error("checkToken error:", error);
     }finally{
         setIsLoading(false);
     }
 }
 
   return (
-    <AuthContext.Provider value={{ login, user, register, logout, isLoading }}>
+    <AuthContext.Provider value={{ login, user, register, logout, isLoading, isLoggedIn }}>
       {children}
     </AuthContext.Provider>
   );
