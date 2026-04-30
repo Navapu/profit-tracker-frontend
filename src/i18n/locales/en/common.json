@@ -40,6 +40,61 @@
     "haveAccount": "Already have an account?",
     "goToLogin": "Sign in"
   },
+  "dashboard": {
+    "access": "Dashboard",
+    "title": "A clear view of your financial activity",
+    "subtitle": "Review your overall balance, inspect recent movements, and quickly understand how your money is behaving.",
+    "netStatus": "Net status",
+    "netPositive": "Your income is staying ahead of your spending.",
+    "netNegative": "Your spending is currently above your income.",
+    "savingsRate": "Savings rate: {{value}}%",
+    "balance": "Balance",
+    "income": "Income",
+    "expenses": "Expenses",
+    "balanceHint": "Net result for the selected period.",
+    "incomeHint": "Accumulated total from incoming money.",
+    "expenseHint": "Accumulated total from outgoing money.",
+    "savingsMetric": "Savings",
+    "savingsHint": "Share of income that remains after spending."
+  },
+  "transactions": {
+    "eyebrow": "Movements",
+    "title": "Recent transactions",
+    "total": "Total",
+    "page": "Page",
+    "showing": "Showing",
+    "amount": "Amount",
+    "statusLabel": "Status",
+    "movementType": "Movement type",
+    "recordDate": "Recorded on",
+    "inflow": "Inflow",
+    "outflow": "Outflow",
+    "incomeType": "Income",
+    "expenseType": "Expense",
+    "statusCompleted": "Completed",
+    "statusPending": "Pending",
+    "statusFailed": "Failed",
+    "previous": "Previous",
+    "next": "Next",
+    "paginationSummary": "Page {{current}} of {{total}}",
+    "emptyTitle": "No transactions yet",
+    "emptyDescription": "Once you start registering movements, they will appear here with date, status, and amount.",
+    "untitled": "Untitled movement",
+    "unknownType": "No type",
+    "noStatus": "No status"
+  },
+  "stats": {
+    "eyebrow": "Stats",
+    "title": "Monthly pulse",
+    "month": "Month",
+    "monthlyChart": "Monthly chart",
+    "income": "Income",
+    "expenses": "Expenses",
+    "balanceLabel": "Balance:",
+    "chartAria": "Monthly comparison chart for income and expenses",
+    "emptyTitle": "No stats available",
+    "emptyDescription": "When the backend returns data for this endpoint, it will appear here."
+  },
   "validation": {
     "invalidEmail": "Invalid email",
     "passwordMin": "Password must be at least 6 characters",
@@ -49,8 +104,12 @@
   "errors": {
     "loginFailed": "Login failed",
     "registerFailed": "Registration failed",
+    "getSummaryFailed": "Could not load summary",
+    "getTransactionsFailed": "Could not load transactions",
+    "getStatsFailed": "Could not load stats",
     "unexpected": "An unexpected error occurred",
     "logoutFailed": "Logout failed",
-    "checkTokenFailed": "Error verifying token"
+    "checkTokenFailed": "Error verifying token",
+    "refreshTokenFailed": "Session expired. Please log in again."
   }
 }

@@ -40,6 +40,61 @@
     "haveAccount": "Ya tienes cuenta?",
     "goToLogin": "Inicia sesion"
   },
+  "dashboard": {
+    "access": "Dashboard",
+    "title": "Una vista clara de tu actividad financiera",
+    "subtitle": "Consulta tu balance general, revisa los ultimos movimientos y detecta rapidamente como se esta comportando tu dinero.",
+    "netStatus": "Estado neto",
+    "netPositive": "Tus ingresos estan por encima de tus gastos.",
+    "netNegative": "Tus gastos estan superando tus ingresos.",
+    "savingsRate": "Tasa de ahorro: {{value}}%",
+    "balance": "Balance",
+    "income": "Ingresos",
+    "expenses": "Gastos",
+    "balanceHint": "Resultado neto del periodo seleccionado.",
+    "incomeHint": "Total acumulado en entradas de dinero.",
+    "expenseHint": "Total acumulado en salidas de dinero.",
+    "savingsMetric": "Ahorro",
+    "savingsHint": "Porcentaje del ingreso que se conserva."
+  },
+  "transactions": {
+    "eyebrow": "Movimientos",
+    "title": "Transacciones recientes",
+    "total": "Total",
+    "page": "Pagina",
+    "showing": "Mostrando",
+    "amount": "Importe",
+    "statusLabel": "Estado",
+    "movementType": "Tipo de movimiento",
+    "recordDate": "Fecha del registro",
+    "inflow": "Entrada",
+    "outflow": "Salida",
+    "incomeType": "Ingreso",
+    "expenseType": "Gasto",
+    "statusCompleted": "Completada",
+    "statusPending": "Pendiente",
+    "statusFailed": "Fallida",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "paginationSummary": "Pagina {{current}} de {{total}}",
+    "emptyTitle": "Todavia no hay transacciones",
+    "emptyDescription": "Cuando registres movimientos, apareceran aqui con su fecha, estado e importe.",
+    "untitled": "Movimiento sin nombre",
+    "unknownType": "Sin tipo",
+    "noStatus": "Sin estado"
+  },
+  "stats": {
+    "eyebrow": "Estadisticas",
+    "title": "Pulso mensual",
+    "month": "Mes",
+    "monthlyChart": "Grafico mensual",
+    "income": "Ingresos",
+    "expenses": "Gastos",
+    "balanceLabel": "Balance:",
+    "chartAria": "Grafico comparativo mensual de ingresos y gastos",
+    "emptyTitle": "No hay estadisticas disponibles",
+    "emptyDescription": "Cuando el backend devuelva datos para este endpoint, apareceran aqui."
+  },
   "validation": {
     "invalidEmail": "Email invalido",
     "passwordMin": "La contrasena debe tener al menos 6 caracteres",
@@ -49,8 +104,13 @@
   "errors": {
     "loginFailed": "Inicio de sesion fallido",
     "registerFailed": "Registro fallido",
+    "getSummaryFailed": "No se pudo cargar el resumen",
+    "getTransactionsFailed": "No se pudieron cargar las transacciones",
+    "getStatsFailed": "No se pudieron cargar las estadisticas",
     "unexpected": "Ha ocurrido un error inesperado",
     "logoutFailed": "Cierre de sesion fallido",
-    "checkTokenFailed": "Error al verificar el token"
+    "checkTokenFailed": "Error al verificar el token",
+    "refreshTokenFailed": "Sesion expirada. Por favor, inicia sesion de nuevo."
+
   }
 }

@@ -5,9 +5,11 @@ import { Register } from './pages/Register/Register.jsx'
 import { Dashboard } from './pages/Dashboard/Dashboard.jsx';
 import { PrivateRoute } from './components/PrivateRoute.jsx';
 import { PublicRoute } from './components/PublicRoute.jsx';
+import { Toaster } from 'react-hot-toast';
 function App() {
   return (
     <div>
+      <Toaster position="top-right" reverseOrder={false} />
       <Routes>
         <Route path='/auth'>
           <Route index element={<Navigate to="login" replace />} />

@@ -6,7 +6,7 @@ import { ClipLoader } from "react-spinners";
 export const PublicRoute = ({ children }) => {
   const { isLoggedIn, isLoading } = useContext(AuthContext);
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/dashboard";
 
   if (isLoading) {
     return (

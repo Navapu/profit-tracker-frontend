@@ -1,5 +1,7 @@
+import { t } from "i18next";
 import { BACKEND_URL } from "../config/config.js";
 import { getAccessToken, getRefreshToken, setTokens, clearTokens } from "../helpers/tokens.js";
+import toast from "react-hot-toast";
 
 let isRefreshing = false;
 let refreshPromise = null;
@@ -22,7 +24,7 @@ async function refreshAccessToken() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ refreshToken: refreshTokenObj.refreshToken }),
       });
-      if (!res.ok) throw new Error("Failed to refresh token");
+      if (!res.ok) toast.error(t("errors.refreshTokenFailed"));
 
       const data = await res.json();
 

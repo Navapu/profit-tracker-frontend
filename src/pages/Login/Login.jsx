@@ -22,7 +22,7 @@ export const Login = () => {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from || "/";
+  const from = location.state?.from || "/dashboard";
 
   const {
     register,
