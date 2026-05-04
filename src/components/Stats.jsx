@@ -3,6 +3,8 @@ import { useState, useEffect, useEffectEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { ClipLoader } from "react-spinners";
 
+const TRANSACTION_UPDATED_EVENT = "transactions:updated";
+
 const formatAmount = (value) =>
   new Intl.NumberFormat("es-ES", {
     style: "currency",
@@ -52,6 +54,21 @@ export const Stats = () => {
 
   useEffect(() => {
     getStats();
+  }, []);
+
+  useEffect(() => {
+    const handleTransactionUpdated = () => {
+      getStats();
+    };
+
+    window.addEventListener(TRANSACTION_UPDATED_EVENT, handleTransactionUpdated);
+
+    return () => {
+      window.removeEventListener(
+        TRANSACTION_UPDATED_EVENT,
+        handleTransactionUpdated
+      );
+    };
   }, []);
 
   const maxValue = Math.max(

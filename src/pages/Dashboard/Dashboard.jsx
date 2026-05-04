@@ -1,6 +1,7 @@
 import { Summary } from "../../components/Summary.jsx";
-import { Stats } from "../../components/Stats.jsx";
+// import { Stats } from "../../components/Stats.jsx";
 import { Transactions } from "../../components/Transactions.jsx";
+import { CreateTransaction } from "../../components/CreateTransaction.jsx";
 
 export const Dashboard = () => {
   return (
@@ -9,8 +10,9 @@ export const Dashboard = () => {
       <div className="relative mx-auto max-w-7xl px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
         <div className="grid gap-6 xl:grid-cols-12">
           <Summary />
+          <CreateTransaction />
+          {/* <Stats /> */}
           <Transactions />
-          <Stats />
         </div>
       </div>
     </main>

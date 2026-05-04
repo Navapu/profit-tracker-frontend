@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { ClipLoader } from "react-spinners";
 
 const PAGE_LIMIT = 6;
+const TRANSACTION_UPDATED_EVENT = "transactions:updated";
 
 const formatAmount = (value) =>
   new Intl.NumberFormat("es-ES", {
@@ -102,6 +103,21 @@ export const Transactions = () => {
 
   useEffect(() => {
     getTransactions(page);
+  }, [page]);
+
+  useEffect(() => {
+    const handleTransactionUpdated = () => {
+      getTransactions(page);
+    };
+
+    window.addEventListener(TRANSACTION_UPDATED_EVENT, handleTransactionUpdated);
+
+    return () => {
+      window.removeEventListener(
+        TRANSACTION_UPDATED_EVENT,
+        handleTransactionUpdated
+      );
+    };
   }, [page]);
 
   const hasTransactions = transactionsData.transactions.length > 0;
